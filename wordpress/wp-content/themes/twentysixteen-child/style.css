@@ -1,0 +1,49 @@
+/*
+ Theme Name:   twenty sixteen Child
+ Template:     twentysixteen
+ Text Domain:  twentysixteen-child
+*/
+
+/* 
+==========================
+TinyMCE editor styles.
+==========================
+*/
+body.mce-content-body{
+    max-width: 100%;
+    background: #fff;
+}
+/* 
+==========================
+Admin menu style. 
+==========================
+*/
+#wp-admin-bar-wp-logo,
+#wp-admin-bar-comments,
+#wp-admin-bar-new-content,
+#wp-admin-bar-view,
+#edit-slug-box,
+.notice.acf-to-rest-api-donation-notice,
+li#menu-appearance ul.wp-submenu-wrap li.hide-if-no-customize{
+    display: none;
+}
+li.Menu-Item_text_admin .wp-menu-image{
+    display: none;
+} 
+li.Menu-Item_text_admin .wp-menu-name{
+    font-weight: 600 !important;
+    padding-left: 10px !important;
+}
+li.Menu-Item_text_admin .wp-menu-name:hover{
+    cursor: default;
+    color: #fff;
+    background: #23282D;
+}
+div#tagsdiv-post_tag.postbox .inside .hide-if-no-js div#tagcloud-post_tag.the-tagcloud ul.wp-tag-cloud li{
+    display: block;
+}
+div#tagsdiv-post_tag.postbox .inside .hide-if-no-js div#tagcloud-post_tag.the-tagcloud ul.wp-tag-cloud li a{
+    font-size: 15px !important;
+    margin-bottom: 10px;
+    display: block;
+}

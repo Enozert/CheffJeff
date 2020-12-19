@@ -10,29 +10,29 @@ if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; r
 }
 
 switch ($request) {
-  case '/' :
-      require __DIR__ . '/Pages/index.php';
-      die();
-      break;
-  case '/home' :
-      require __DIR__ . '/Pages/index.php';
-      die();
-      break;
-  case '' :
-      require __DIR__ . '/Pages/index.php';
-      die();
-      break;
-  case '/wp' :
-      require __DIR__ . '/wordpress/wp-login.php';
-      die();
-      break;
-  case '/wp-admin' :
-      require __DIR__ . '/wordpress/wp-login.php';
-      die();
-      break;
-  default:
-      http_response_code(404);
-      require __DIR__ . '/Pages/Errors/404.php';
-      die();
-      break;
+    case '/' :
+        require __DIR__ . '/Pages/index.php';
+        die();
+        break;
+    case '/home' :
+        require __DIR__ . '/Pages/index.php';
+        die();
+        break;
+    case '' :
+        require __DIR__ . '/Pages/index.php';
+        die();
+        break;
+    case '/wp' :
+        require __DIR__ . '/wordpress/wp-login.php';
+        die();
+        break;
+    case '/wp-admin' :
+        require __DIR__ . '/wordpress/wp-login.php';
+        die();
+        break;
+    default:
+        http_response_code(404);
+        require __DIR__ . '/Pages/Errors/404.php';
+        die();
+        break;
 }
