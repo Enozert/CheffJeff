@@ -9,17 +9,45 @@ if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; r
     die();
 }
 
+// if(empty($_SESSION['menu'])){
+//     include($root."/Recources/PHP/Api/getMenu.api.php");
+//     GetMenu($host);          
+// }  
+
+include($root."/src/php/api/getMenu.api.php");
+GetMenu($host);  
+
+$menuItems = $_SESSION['menu'];
+
+if(strpos($request, '?fbclid')){
+    $request = substr($request, 0, strpos($request, "?fbclid"));
+}
+
+foreach($menuItems as $menuItem){
+    if($request == $menuItem['Link']){
+        $requestPrep = file_get_contents($menuItem['templateIpa']);
+        $template = json_decode($requestPrep, true);
+        $template = $template[0]['acf']['template'];
+        require __DIR__ . '/Pages/'.$template;
+        die();
+    }
+}
+
 switch ($request) {
     case '/' :
-        require __DIR__ . '/Pages/index.php';
+        require __DIR__ . '/Pages/home.php';
         die();
         break;
     case '/home' :
-        require __DIR__ . '/Pages/index.php';
+        require __DIR__ . '/Pages/home.php';
         die();
         break;
     case '' :
-        require __DIR__ . '/Pages/index.php';
+        require __DIR__ . '/Pages/home.php';
+        die();
+        break;
+    case '/wordpress' :
+        require __DIR__ . '/Pages/home.php';
         die();
         break;
     case '/wp' :

@@ -1,4 +1,13 @@
-import {bro} from './bro';
-import '../sass/main.scss';
+$(document).ready(function(){
+  $('#menuToggle').click(function(){
+    $('#menuToggle').toggleClass('active');
+    $('.menu-wrapper').toggleClass('active');
 
-console.log(bro('Yes'));
+    if($('#menuToggle').hasClass('active')){
+      $('#menuToggle').attr('aria-expanded', 'true');
+    }
+    else{
+      $('#menuToggle').attr('aria-expanded', 'false');
+    }
+  })
+}); 

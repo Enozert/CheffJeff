@@ -50,7 +50,7 @@ function change_menus_position() {
 // redirect to website and not wordpress   
 add_filter( 'template_include', 'my_callback' );
 function my_callback() {
-    return $_SERVER['DOCUMENT_ROOT']."/Pages/index.php";
+    return $_SERVER['DOCUMENT_ROOT']."/Pages/home.php";
 }
 
 // redirects
@@ -74,15 +74,15 @@ function my_callback() {
 // }
 // add_action('rest_api_init', 'get_category_name');
 
-// function get_img_url() {
-//     register_rest_field( 'home', 'imageURL', array(
-//             'get_callback'    => 'get_original_images_urls',
-//             'update_callback' => null,
-//             'schema'          => null,
-//         )
-//     );
-// }
-// add_action('rest_api_init', 'get_img_url');
+function get_img_url() {
+    register_rest_field( 'home', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_action('rest_api_init', 'get_img_url');
 
 function get_original_images_urls( $object, $field_name, $request ) {
     $img = wp_get_attachment_image_src( get_post_thumbnail_id( $object->id ), 'full' );
@@ -93,14 +93,14 @@ function get_original_images_urls( $object, $field_name, $request ) {
     );
 }
 
-// get menu with rest api
-// function get_nav_menus() {
-//     return wp_get_nav_menu_items('Main Navigation');
-// }
+//get menu with rest api
+function get_nav_menus() {
+    return wp_get_nav_menu_items('Main Navigation');
+}
 
-// add_action( 'rest_api_init', function () {
-//     register_rest_route( 'wp/v2', 'menu', array(
-//         'methods' => 'GET',
-//         'callback' => 'get_nav_menus',
-//     ) );
-// } );
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'wp/v2', 'menu', array(
+        'methods' => 'GET',
+        'callback' => 'get_nav_menus',
+    ) );
+} );

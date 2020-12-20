@@ -4,5 +4,5 @@ install webpack
 
 install webpack sass
 - npm install --save-dev css-loader style-loader sass-loader node-sass
-
+- npm install --save-dev file-loader
 npm run build
