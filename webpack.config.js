@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -14,18 +14,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use:['css-loader','sass-loader'],
-          }),
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
         ],
       },
       // {
-      //   test: /\.css$/,
+      //   test: /\.scss$/,
       //   use: [
-      //     MiniCssExtractPlugin.loader,
+      //     'style-loader',
       //     'css-loader',
-      //   ]
+      //     'sass-loader'
+      //   ],
       // },
       {
         test: /\.(woff(2)?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -42,9 +42,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename:'app.bundle.css'
-    }),
+    new MiniCssExtractPlugin()
   ],
   // watch: true,
 };
