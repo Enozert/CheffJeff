@@ -13,6 +13,7 @@ bundleTask = ()=> {
   return webpack_stream({
     entry: {
       home: './src/javaScript/pages/home.js',
+      about: './src/javaScript/pages/about.js',
     },
     mode: 'production',
     output: {
@@ -22,8 +23,8 @@ bundleTask = ()=> {
 }
 
 defaultTask = ()=> {
-  watch('./src/javaScript/pages/*.js', bundleTask);
-  watch('./src/sass/pages/*.scss', compileCss);
+  watch('./src/javaScript/**/*.js', bundleTask);
+  watch('./src/sass/**/*.scss', compileCss);
 }
 
 exports.default  = defaultTask;

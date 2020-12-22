@@ -1,7 +1,7 @@
 <?php
     $Page = "Home";
     $JS = "home";
-    $CSS = "home";
+    $CSS = $JS;
     if(is_null($root)){
         include('../config.php');
     }
@@ -25,5 +25,5 @@
     </div>
 </section>
 <?php 
-    include($_SERVER['DOCUMENT_ROOT']."/Pages/Templates/bottom.php")
+    include($root."/Pages/Templates/bottom.php")
 ?>

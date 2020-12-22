@@ -81,6 +81,12 @@ function get_img_url() {
             'schema'          => null,
         )
     );
+    register_rest_field( 'about', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
 }
 add_action('rest_api_init', 'get_img_url');
 

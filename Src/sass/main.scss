@@ -37,6 +37,9 @@ header{
     width: 52px;
     background: $navBlack;
     z-index: 9999;
+    .side-bar-wrapper{
+        padding: 0px;
+    }
     .d-flex{
         height: 100vh;
         .middle-wrapper{
