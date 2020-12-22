@@ -1,32 +1,31 @@
 const gulp = require('gulp');
+const {watch} = require('gulp');
 const sass = require('gulp-sass');
-// const webpack = require('webpack');
 const webpack_stream = require('webpack-stream');
-// const gPrint = require('gulp-print');
-// const gUntil = require('gulp-until');
-// const del = require('del');
-// const vinylPaths = require('vinyl-paths');
-// const minify = require('gulp-uglify');
-// const babel = require('gulp-babel');
-// const concat = require('gulp-concat');
 
-gulp.task('sass', function() {
+compileCss = ()=> {
   return gulp.src('./src/sass/pages/*.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('./dist/style'));
-});
+}
 
-gulp.task('bundleJS', function() {
-  return gulp.src('./src/javaScript/pages/home.js')
-    .pipe(webpack_stream({
-      output: {
-        filename: 'home.js'
-      }
-    }))
-    .pipe(gulp.dest('./dist/js'));
-});
+bundleTask = ()=> {
+  return webpack_stream({
+    entry: {
+      home: './src/javaScript/pages/home.js',
+    },
+    mode: 'production',
+    output: {
+      filename: '[name].js'
+    }
+  }).pipe(gulp.dest('./dist/js'));
+}
 
-gulp.task('default', function() {
-  // watch('./src/javaScript/pages/*.js', bundleJS);
-  // watch('./src/sass/pages/*.scss', sass);
-});
+defaultTask = ()=> {
+  watch('./src/javaScript/pages/*.js', bundleTask);
+  watch('./src/sass/pages/*.scss', compileCss);
+}
+
+exports.default  = defaultTask;
+exports.compile  = compileCss;
+exports.bundleJS = bundleTask;
