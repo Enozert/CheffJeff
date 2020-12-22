@@ -7,16 +7,13 @@
     "build": "webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jeffrey Nijkamp",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^5.0.1",
-    "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.0",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
-  }
+    "webpack-stream": "^6.1.1"
+  },
+  "dependencies": {}
 }

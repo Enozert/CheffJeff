@@ -1,6 +1,7 @@
 <?php
     $Page = "Home";
     $JS = "home";
+    $CSS = "home";
     if(is_null($root)){
         include('../config.php');
     }
