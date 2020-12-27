@@ -17,6 +17,7 @@ bundleTask = ()=> {
       skills: './src/javaScript/pages/skills.js',
       services: './src/javaScript/pages/services.js',
       projects: './src/javaScript/pages/projects.js',
+      contact: './src/javaScript/pages/contact.js',
     },
     mode: 'production',
     output: {

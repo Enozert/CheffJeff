@@ -31,7 +31,7 @@ function remove_menus(){
     remove_menu_page( 'smush' );
     //remove_menu_page( 'edit.php?post_type=acf-field-group' ); //custom posttype
 }
-remove_action( 'admin_menu', 'cptui_plugin_menu' ); //custom fieldtype
+//remove_action( 'admin_menu', 'cptui_plugin_menu' ); //custom fieldtype
 add_action( 'admin_menu', 'remove_menus' );
 
 add_action('admin_menu', 'change_menus_position');
@@ -94,6 +94,12 @@ function get_img_url() {
         )
     );
     register_rest_field( 'services', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'contact', 'imageURL', array(
             'get_callback'    => 'get_original_images_urls',
             'update_callback' => null,
             'schema'          => null,
