@@ -43,98 +43,108 @@
                 <form id="form" class="contactForm" action="" method="post" @submit="onSubmit">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="inner" :class="{error: fNameHasError, valid: fNameIsValid}">
-                                <label for="firstName">
-                                    <span class="labelText">First name.</span>
-                                </label>
-                                <input 
-                                    type="text" 
-                                    name="firstName" 
-                                    id="firstName" 
-                                    class="input firstName" 
-                                    @keyup="checkFName(fName)" 
-                                    @blur="checkFName(fName)"
-                                    v-model="fName"
-                                >
-                                <span class="help-block">
-                                    {{ errors['fName'] }}
-                                </span>
+                            <div class="inner">
+                                <div class="wrap" :class="{error: fNameHasError, valid: fNameIsValid}">
+                                    <label for="firstName">
+                                        <span class="labelText">First name.</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        name="firstName" 
+                                        id="firstName" 
+                                        class="input firstName" 
+                                        @keyup="checkFName(fName)" 
+                                        @blur="checkFName(fName)"
+                                        v-model="fName"
+                                    >
+                                    <span class="help-block">
+                                        {{ errors['fName'] }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="inner" :class="{error: lNameHasError, valid: lNameIsValid}">
-                                <label for="text">
-                                    <span class="labelText">Last name.<small>(sir name)</small></span>
-                                </label>
-                                <input 
-                                    type="text" 
-                                    name="lastName" 
-                                    id="lastName" 
-                                    class="input lastName"
-                                    @keyup="checkLName(lName)" 
-                                    @blur="checkLName(lName)"
-                                    v-model="lName"
-                                >
-                                <span class="help-block">
-                                    {{ errors['lName'] }}
-                                </span>
+                            <div class="inner">
+                                <div class="wrap" :class="{error: lNameHasError, valid: lNameIsValid}">
+                                    <label for="text">
+                                        <span class="labelText">Last name.<small>(sir name)</small></span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        name="lastName" 
+                                        id="lastName" 
+                                        class="input lastName"
+                                        @keyup="checkLName(lName)" 
+                                        @blur="checkLName(lName)"
+                                        v-model="lName"
+                                    >
+                                    <span class="help-block">
+                                        {{ errors['lName'] }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="inner" :class="{error: emailHasError, valid: emailIsValid}">
-                                <label for="email">
-                                    <span class="labelText">E-mail adress.</span>
-                                </label>
-                                <input 
-                                    type="email" 
-                                    name="email" 
-                                    id="mail" 
-                                    class="input mail"
-                                    @keyup="checkEmail(email)" 
-                                    @blur="checkEmail(email)"
-                                    v-model="email"
-                                >
-                                <span class="help-block">
-                                    {{ errors['email'] }}
-                                </span>
+                            <div class="inner">
+                                <div class="wrap" :class="{error: emailHasError, valid: emailIsValid}">
+                                    <label for="email">
+                                        <span class="labelText">E-mail adress.</span>
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        name="email" 
+                                        id="mail" 
+                                        class="input mail"
+                                        @keyup="checkEmail(email)" 
+                                        @blur="checkEmail(email)"
+                                        v-model="email"
+                                    >
+                                    <span class="help-block">
+                                        {{ errors['email'] }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="inner" :class="{error: phoneHasError, valid: phoneIsValid}">
-                                <label for="tel">
-                                    <span class="labelText">Phone number.<small>(optional)</small></span>
-                                </label>
-                                <input 
-                                    type="tel" 
-                                    name="tel" 
-                                    id="tel" 
-                                    class="input tel"
-                                    @keyup="checkPhone(phone)"
-                                    @blur="checkPhone(phone)" 
-                                    v-model="phone"
-                                >
-                                <span class="help-block">
-                                    {{ errors['phone'] }}
-                                </span>
+                            <div class="inner">
+                                <div class="wrap" :class="{error: phoneHasError, valid: phoneIsValid}">
+                                    <label for="tel">
+                                        <span class="labelText">Phone number.<small>(optional)</small></span>
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        name="tel" 
+                                        id="tel" 
+                                        class="input tel"
+                                        @keyup="checkPhone(phone)"
+                                        @blur="checkPhone(phone)" 
+                                        v-model="phone"
+                                    >
+                                    <span class="help-block">
+                                        {{ errors['phone'] }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="inner" :class="{error: messageHasError, valid: messageIsValid}">
-                                <label for="message">
-                                    <span class="labelText lower">Message.</span>
-                                </label>
-                                <textarea 
-                                    name="message" 
-                                    id="message" 
-                                    name="message" 
-                                    class="input message"
-                                    @keyup="checkMessage(message)" 
-                                    @blur="checkMessage(message)"
-                                    v-model="message"
-                                ></textarea>
-                                <span class="help-block">
-                                    {{ errors['message'] }}
-                                </span>
+                            <div class="inner">
+                                <div class="wrap" :class="{error: messageHasError, valid: messageIsValid}">
+                                    <label for="message">
+                                        <span class="labelText lower">Message.</span>
+                                    </label>
+                                    <textarea 
+                                        name="message" 
+                                        id="message" 
+                                        name="message" 
+                                        class="input message"
+                                        @keyup="checkMessage(message)" 
+                                        @blur="checkMessage(message)"
+                                        v-model="message"
+                                    ></textarea>
+                                    <span class="help-block">
+                                        {{ errors['message'] }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">

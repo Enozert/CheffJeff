@@ -1,0 +1,118 @@
+.main-content{
+  max-width: 700px;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  margin: -178px 0 0 -335px;
+  .browsers-wrapper{
+    h1{
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 1px;
+    }
+    p{
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 1px;
+    }
+    .browsers{
+      list-style: none;
+      max-width: 660px;
+      padding-left: 0;
+      margin: 25px auto 0;
+      li{
+        display: inline-block;
+        width: 136px;
+        height: 136px;
+        margin: 0 16px 16px 0;
+        background: #f3f3f3;
+        border-radius: 4px;
+        padding: 5px 5px 15px;
+        transition: transform .3s ease-in-out;
+
+        a{
+          text-decoration: none !important;
+          img{
+            margin: auto;
+            width: 90%;
+            height: auto;
+            display: block;
+          }
+          p{
+            color: #000;
+            text-align: center;
+            margin: 0 auto;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 1px;
+          }
+        }
+
+        &:hover{
+          cursor: pointer;
+          transform: scale(1.05);
+          transition: transform .3s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px){
+  body, html{
+    overflow-x: hidden;
+  }
+  .main-content{
+    max-width: 700px;
+    width: 100%;
+    position: unset;
+    margin: 0 auto;
+    padding: 0 10px;
+    .browsers-wrapper{
+      h1{
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: 1px;
+      }
+      p{
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: 1px;
+      }
+      .browsers{
+        list-style: none;
+        max-width: 660px;
+        padding-left: 0;
+        margin: 25px auto 0;
+        li{
+          display: inline-block;
+          width: 136px;
+          height: 136px;
+          margin: 0 16px 16px 0;
+          background: #f3f3f3;
+          border-radius: 4px;
+          padding: 5px 5px 15px;
+          transition: transform .3s ease-in-out;
+
+          a{
+            text-decoration: none !important;
+            img{
+              margin: auto;
+              width: 90%;
+              height: auto;
+              display: block;
+            }
+            p{
+              color: #000;
+              text-align: center;
+              margin: 0 auto;
+              font-family: 'Roboto', sans-serif;
+              letter-spacing: 1px;
+            }
+          }
+
+          &:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: transform .3s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

@@ -153,24 +153,26 @@
         margin: 25px 0 0 auto;
         background: rgba(255,255,255,0);
       }
-      &.error{
-        label{
-          color: $MainRed;
-          transition: color .2s ease-in;
+      .wrap{
+        &.error{
+          label{
+            color: $MainRed;
+            transition: color .2s ease-in;
+          }
+          .input{
+            border-bottom: 1.5px solid $MainRed !important;
+            transition: all .2s ease-in;
+          }
         }
-        .input{
-          border-bottom: 1.5px solid $MainRed !important;
-          transition: all .2s ease-in;
-        }
-      }
-      &.valid{
-        label{
-          color: $SpotifyBG;
-          transition: color .2s ease-in;
-        }
-        .input{
-          border-bottom: 1.5px solid $SpotifyBG !important;
-          transition: all .2s ease-in;
+        &.valid{
+          label{
+            color: $SpotifyBG;
+            transition: color .2s ease-in;
+          }
+          .input{
+            border-bottom: 1.5px solid $SpotifyBG !important;
+            transition: all .2s ease-in;
+          }
         }
       }
     }

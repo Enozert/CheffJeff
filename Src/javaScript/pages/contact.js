@@ -25,16 +25,16 @@ $(document).ready(function() {
 });
 
 function focusinInput() {
-  if(!inputFocus.parent('.inner').hasClass('active')){
-    inputFocus.parent('.inner').addClass('active');
+  if(!inputFocus.parent('.wrap').parent('.inner').hasClass('active')){
+    inputFocus.parent('.wrap').parent('.inner').addClass('active');
   }
   inputFocus = "";
 }
 
 function focusoutInput() {
   if(inputFocus.val() == ""){
-    if(inputFocus.parent('.inner').hasClass('active')){
-      inputFocus.parent('.inner').removeClass('active');
+    if(inputFocus.parent('.wrap').parent('.inner').hasClass('active')){
+      inputFocus.parent('.wrap').parent('.inner').removeClass('active');
     }
   }
   inputFocus = "";
