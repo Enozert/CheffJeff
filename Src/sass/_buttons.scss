@@ -1,0 +1,58 @@
+.mainButton{
+  background: $button;
+  color: $wText;
+  border: solid 2px $wText;
+  padding: 5px 15px 7px 15px;
+  font-size: 2rem;
+  border-radius: 10px; 
+  display: block; 
+  width: 200px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-align: center;
+  transition: all .4s ease-in;
+
+  &:hover{
+      background: $wText;
+      color: $button;
+      text-decoration: none;
+      transition: all .4s ease-in;
+  }
+}
+
+.mainButton2{
+  background: $button;
+  color: $wText;
+  border: solid 2px $button;
+  padding: 5px 15px 7px 15px;
+  font-size: 2rem;
+  border-radius: 10px;
+  display: block;
+  width: 200px;
+  text-align: center;
+
+  &:hover{
+      background: $wText;
+      color: $button;
+      text-decoration: none;
+  }
+}
+
+.Spotify{
+  background: $SpotifyBG;
+  color: $SpotifyTX;
+  border: solid 2px $SpotifyBG;
+  padding: 5px 15px 7px 15px;
+  font-size: 2rem;
+  border-radius: 10px;
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 30px auto 0;
+
+  &:hover{
+      background: rgba(0,0,0,0);
+      color: $SpotifyTX;
+      text-decoration: none;
+  }
+}

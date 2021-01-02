@@ -1,14 +1,15 @@
 @import './fonts.scss';
+
 img{
     width: 100%;
     height: auto;
     display: block;
 }
-
+ 
 h1{
     font-weight: 600 !important;
 }
-
+ 
 body,html{
     font-family: $Font !important;
     font-weight: 600;
@@ -28,7 +29,7 @@ body,html{
         background: #555; 
       }
 }
-
+ 
 header{
     position: fixed;
     top: 0;
@@ -37,6 +38,9 @@ header{
     width: 52px;
     background: $navBlack;
     z-index: 9999;
+    .side-bar-wrapper{
+        padding: 0px;
+    }
     .d-flex{
         height: 100vh;
         .middle-wrapper{

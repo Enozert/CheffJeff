@@ -1,0 +1,210 @@
+@import "../_variables.scss";
+@import "../main.scss";
+@import "../buttons.scss";
+
+.projects{
+  background: $BG3;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-left: 52px;
+  padding-top: 0;
+   
+  .container-fluid{
+    width: 85%;
+  }
+
+  .title-wrap{
+    margin-bottom: 90px;
+    .page-title{
+      h1{
+        font-size: 35px;
+        letter-spacing: 1.5px;
+        color: $wText;
+        text-align: center;
+        p{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .filter-wrap{
+    display: flex;
+    justify-content: center;
+    margin: -50px 0 50px;
+    flex-wrap: wrap;
+    .btn-filter{
+      color: $wText;
+      font-size: 20px;
+      letter-spacing: 1.5px;
+      padding: 8px 15px;
+      margin: 0 5px;
+      position: relative;
+      min-width: 100px;
+      z-index: 1;
+      text-align: center;
+      font-weight: 500;
+      transition: color .3s ease-in-out;
+      &.active{
+        color: $Text;
+        transition: color .3s ease-in-out;
+        &::before{
+          height: 100%;
+          transition: height .3s ease-in-out;
+        }
+      }
+      &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0px;
+        width: 100%;
+        background: $mainWhite;
+        z-index: -1;
+        transition: height .3s ease-in-out;
+      }
+      &:hover{
+        cursor: pointer;
+        color: $Text;
+        transition: color .3s ease-in-out;
+        &::before{
+            height: 100%;
+            transition: height .3s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .project-item{
+    transition: max-width .6s ease-in-out;
+    transition: transform .7s ease-in-out;
+
+    &.hide{
+      transform: scale(0);
+      transition: transform .5s ease-in-out;
+      transition: max-width .7s ease-in-out;
+      max-width: 0;
+    }
+  }
+
+  .project{
+    position: relative;
+    .content-wrap{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      transition: opacity .4s ease-in-out; 
+      .inner{
+        width: 100%;
+        .title{
+          h2{
+            text-align: center;
+            color: $wText;
+            font-size: 35px;
+            letter-spacing: 1.5px;
+            padding-bottom: 20px;
+          }
+        }
+        .link{
+          a{
+            @extend .mainButton;
+            outline: none !important;
+            margin: auto;
+          }
+        }
+      }
+    }
+    &:hover{
+      .img-wrap{
+        img{
+          opacity: .2;
+          transition: opacity .3s ease-in-out; 
+        }
+      }
+      .content-wrap{
+        opacity: 1;
+        transition: opacity .4s ease-in-out; 
+      }
+    }   
+  } 
+  #particles-js{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    canvas{
+      display: block; 
+    }
+  }
+}
+
+@media only screen and (max-width: 1430px){
+  .projects{
+    .container-fluid {
+      width: 95%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .projects{
+    .project{
+      .content-wrap{
+        .inner{
+          .title{
+            h2{
+              font-size: 2.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .projects{
+    .project-item{
+      max-width: 50%;
+      flex: 0 0 50%;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .projects{
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 420px){
+  .projects{
+    margin-top: 70px;
+    .title-wrap{
+      .page-title{
+        h1{
+          padding-top: 50px;
+          font-size: 2.5rem;
+        }
+      }
+    }
+    .filter-wrap{
+      .btn-filter{
+        margin: 0 5px 10px;
+        font-size: 1.7rem;
+      }
+    }
+    .project-item{
+      max-width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+}

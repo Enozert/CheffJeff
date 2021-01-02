@@ -1,8 +1,3 @@
 CheffJeff
-install webpack
-- npm install --save-dev webpack webpack-cli
-
-install webpack sass
-- npm install --save-dev css-loader style-loader sass-loader node-sass
-- npm install --save-dev file-loader
-npm run build
+install gulp
+- npm install --save-dev gulp gulp-sass node-sass webpack-stream 

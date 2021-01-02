@@ -5,7 +5,7 @@ $request = $_SERVER['REQUEST_URI'];
 
 $ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
 if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
-    require __DIR__ . '/Pages/Errors/ie.php';
+    require __DIR__ . '/Pages/Errors/ie.html';
     die();
 }
 
@@ -35,19 +35,23 @@ foreach($menuItems as $menuItem){
 
 switch ($request) {
     case '/' :
-        require __DIR__ . '/Pages/home.php';
+        require __DIR__ . '/pages/home.php';
         die();
         break;
     case '/home' :
-        require __DIR__ . '/Pages/home.php';
+        require __DIR__ . '/pages/home.php';
         die();
         break;
     case '' :
-        require __DIR__ . '/Pages/home.php';
+        require __DIR__ . '/pages/home.php';
         die();
         break;
     case '/wordpress' :
-        require __DIR__ . '/Pages/home.php';
+        require __DIR__ . '/pages/home.php';
+        die();
+        break;
+    case '/thanks' :
+        require __DIR__ . '/pages/thanks.php';
         die();
         break;
     case '/wp' :
@@ -60,7 +64,7 @@ switch ($request) {
         break;
     default:
         http_response_code(404);
-        require __DIR__ . '/Pages/Errors/404.php';
+        require __DIR__ . '/pages/errors/404.php';
         die();
         break;
 }

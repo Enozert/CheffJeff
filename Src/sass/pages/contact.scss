@@ -1,0 +1,235 @@
+@import "../_variables.scss";
+@import "../main.scss";
+@import "../buttons.scss";
+
+.contact{
+  background: $BG3;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-left: 52px;
+  position: relative;
+
+  .HomeBackgroud{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+
+    &::before{
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $Overlay2;
+    }
+
+    img{
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+  .inner{
+    width: 100%;
+    z-index: 1;
+  }
+  .content{
+    h1{
+      font-size: 27px;
+      letter-spacing: 1.5px;
+      color: $wText;
+      margin-bottom: 70px;
+      text-align: center;
+    }
+  }
+  .innerError{
+    width: 100%;
+    background: $BG3;
+    border: solid 3px $MainRed;
+    border-radius: 15px;
+    width: 50%;
+    margin: auto;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    p{
+      font-size: 1.7rem;
+      color: $MainRed;
+      margin: auto;
+      font-weight: 700;
+    }
+  }
+
+  .contactForm{
+    .inner{
+      margin: 10px 0;
+      position: relative;
+      &.active{
+        label{
+          small{
+            font-size: 1.35rem;
+            transition: all .3s ease-in-out;
+          }
+          span{
+            font-size: 2rem !important;
+            top: -20px;
+            left: 5px;
+            transition: all .3s ease-in-out;
+            &.lower{
+              top: -20px;
+            }
+          }
+        }
+      }
+      label{
+        font-size: 2.3rem;
+        color: $wText;
+        transition: color .2s ease-in;
+        display: block;
+        width: 100%;
+        letter-spacing: 1.5px;
+        small{
+          font-size: 1.45rem;
+          letter-spacing: 1px;
+          vertical-align: top;
+          margin-left: 12px;
+          display: inline-block;
+          transition: all .3s ease-in-out;
+        }
+        span{
+          position: absolute;
+          top: 20px;
+          left: 10px;
+          pointer-events: none;
+          transition: all .3s ease-in-out;
+          &.lower{
+            top: 60px;
+          }
+        }
+      }
+      .input{
+        color: $wText;
+        font-size: 1.85rem;
+        letter-spacing: 1.5px;
+        width: 100%;
+        resize: none;
+        outline: none !important;
+        border-radius: 0px;
+        padding: 7px 10px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        background: rgba(255,255,255,0);
+        transition: all .2s ease-in;
+        border: none;
+        border-bottom: 1.5px solid #fff;
+        margin: 13px 0;
+          
+        &:-webkit-autofill{
+          border-bottom: 1.5px solid #fff;
+          -webkit-text-fill-color: #fff;
+          box-shadow: 0 0 0px 1000px #000 inset;
+          -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+          &:hover,
+          &:focus,
+          &:active{
+            border-bottom: 1.5px solid #fff;
+            -webkit-text-fill-color: #fff;
+            box-shadow: 0 0 0px 1000px #000 inset;
+            -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+          }
+        }
+        &.message{
+          min-height: 85px; 
+          background: rgba(255,255,255,0);
+        }
+      }
+      .submit{
+        @extend .mainButton;
+        outline: none !important;
+        margin: 25px 0 0 auto;
+        background: rgba(255,255,255,0);
+      }
+      .wrap{
+        &.error{
+          label{
+            color: $MainRed;
+            transition: color .2s ease-in;
+          }
+          .input{
+            border-bottom: 1.5px solid $MainRed !important;
+            transition: all .2s ease-in;
+          }
+        }
+        &.valid{
+          label{
+            color: $SpotifyBG;
+            transition: color .2s ease-in;
+          }
+          .input{
+            border-bottom: 1.5px solid $SpotifyBG !important;
+            transition: all .2s ease-in;
+          }
+        }
+      }
+    }
+    .help-block{
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: $MainRed;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .contact{
+    .content{
+      h1{
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 991px){
+  .contact{
+    margin-left: 0px;
+    padding-top: 115px;
+    .contactForm{
+      .inner{
+        margin: 10px 0 25px;
+      }
+    }
+    .content{
+      h1{
+        font-size: 2.5rem; 
+      }
+    }
+  }
+}
+@media only screen and (max-width: 420px){
+  .contact{
+    padding-top: 95px;
+    .innerError{
+      width: 100%;
+    }
+    .content{
+      h1 {
+        font-size: 2.2rem;
+      }
+      p{
+        &:first-child{
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .contactForm{
+      .inner{
+        margin: 10px 0 50px;
+      }
+    }
+  }
+}

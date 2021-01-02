@@ -20,18 +20,18 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 define( 'DISALLOW_FILE_EDIT', true);
 
 function remove_menus(){
-    //remove_menu_page( 'index.php' );                  //dashboard
+    remove_menu_page( 'index.php' );                  //dashboard
     remove_menu_page( 'edit.php' );                   //Posts
     remove_menu_page( 'edit.php?post_type=page' );    //Pages
     remove_menu_page( 'edit-comments.php' );          //Comments
-    //remove_menu_page( 'themes.php' );                 //Appearance
+    remove_menu_page( 'themes.php' );                 //Appearance
     remove_menu_page( 'plugins.php' );                //Plugins
     remove_menu_page( 'tools.php' );                  //Tools
-    //remove_menu_page( 'options-general.php' );        //Settings
+    remove_menu_page( 'options-general.php' );        //Settings
     remove_menu_page( 'smush' );
-    //remove_menu_page( 'edit.php?post_type=acf-field-group' ); //custom posttype
+    remove_menu_page( 'edit.php?post_type=acf-field-group' ); //custom posttype
 }
-//remove_action( 'admin_menu', 'cptui_plugin_menu' ); //custom fieldtype
+remove_action( 'admin_menu', 'cptui_plugin_menu' ); //custom fieldtype
 add_action( 'admin_menu', 'remove_menus' );
 
 add_action('admin_menu', 'change_menus_position');
@@ -54,28 +54,64 @@ function my_callback() {
 }
 
 // redirects
-// add_action('admin_init', 'pages_redirect');
-// function pages_redirect() {
-//     global $pagenow;
+add_action('admin_init', 'pages_redirect');
+function pages_redirect() {
+    global $pagenow;
     
-//     // skip dashboard
-//     if($pagenow == 'index.php'){
-//         wp_redirect( admin_url('/upload.php') ); 
-//         exit;
-//     }
-// }
+    // skip dashboard
+    if($pagenow == 'index.php'){
+        wp_redirect( admin_url('/upload.php') ); 
+        exit;
+    }
+}
 
-// function get_category_name() {
-//     register_rest_field('live_shows', 'categoryName', array(
-//         'get_callback' => function() {
-//             return get_the_category();
-//         }
-//     ));
-// }
-// add_action('rest_api_init', 'get_category_name');
+function get_category_name() {
+    register_rest_field('project', 'categoryName', array(
+        'get_callback' => function() {
+            return get_the_category();
+        }
+    ));
+}
+add_action('rest_api_init', 'get_category_name');
 
 function get_img_url() {
     register_rest_field( 'home', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'about', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'skills', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'services', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'contact', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( 'thanks', 'imageURL', array(
+            'get_callback'    => 'get_original_images_urls',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field( '404', 'imageURL', array(
             'get_callback'    => 'get_original_images_urls',
             'update_callback' => null,
             'schema'          => null,

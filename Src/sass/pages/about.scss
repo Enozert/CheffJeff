@@ -1,0 +1,368 @@
+@import "../_variables.scss";
+@import "../main.scss";
+ 
+.Banner{
+    padding: 0;
+    min-height: 40vh;
+    height: 100%;
+    position: relative;
+
+    .Banner{
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        background: $mainBG;
+        .img{
+            min-height: 100vh; 
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: $mainBG;
+            background-repeat: no-repeat;
+            background-size: cover;
+            &::before{
+                content: "";
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: $Overlay;
+            }
+        }
+
+        // img{
+        //     object-fit: cover;
+        //     height: 100%;
+        // }
+    }
+    .BannerContent{
+        z-index: 2;
+        min-height: 100vh;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        h1{
+            text-align: center;
+            font-size: 5rem;
+            color: $mainWhite;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+        }
+        p{
+            text-align: center;
+            font-size: 2.5rem;
+            color: $mainWhite;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+        }
+
+        .down{
+            position: absolute;
+            bottom: 0;
+            left: 49%;
+            width: 50px;
+            height: 50px;
+            transform: scale(1);
+            transition: transform .3s ease-in-out;
+            span{
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 22px;
+                    left: 0;
+                    width: 25px;
+                    height: 3px;
+                    background: $mainWhite;
+                }
+
+                &:first-child{
+                    &::before{
+                        transform: rotate(45deg);
+                        left: 4px;
+                    }
+                }
+
+                &:last-child{
+                    &::before{
+                        transform: rotate(-45deg);
+                        left: 21px;
+                    }
+                }
+            }
+
+            &:hover{
+                transform: scale(1.2);
+                transition: transform .3s ease-in-out;
+            }
+        }
+    }
+}
+ 
+.me{
+    background: $BG3;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-left: 52px;
+    .container{
+        max-width: 1230px;
+        padding: 50px 0;
+    }
+    .col-lg-7{
+        display: flex;
+        align-items: flex-end;
+    }
+    .background-wrapper{
+        position: relative;
+        .backgroundTxt{
+            position: absolute;
+            bottom: -25px;
+            left: -110px;
+            p{
+                color: $bgTxt;
+                font-size: 7rem;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+            }
+            &.imgTxt{
+                top: -75px;
+                right: -185px;
+                left: unset;
+                bottom: unset;
+                z-index: 0;
+            }
+        }
+    }
+    .inner{
+        &.txt{
+            margin-bottom: 50px;
+            margin-right: -125px;
+            margin-left: 85px;
+            z-index: 2;
+            position: relative;
+            p{
+                font-size: 2.2rem;
+                letter-spacing: 1.5px;
+                margin-bottom: 15px;
+                color: $wText;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        img{
+            opacity: 0.5;
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .me{
+        .background-wrapper{
+            .backgroundTxt{
+                p{
+                    color: $bgTxt;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1640px){
+    .me{
+        .background-wrapper{
+            .backgroundTxt{
+                left: 10px;
+                &.imgTxt{
+                    right: -115px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1500px){
+    .me{
+        .background-wrapper{
+            .backgroundTxt{
+                &.imgTxt{
+                    right: -36px;
+                    top: -92px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1350px){
+    .me{
+        .inner{
+            width: 75%;
+            &.txt{
+                width: 100%;
+                margin-left: 145px;
+            }
+        }
+        .background-wrapper{
+            .backgroundTxt{
+                left: 75px;
+                p{
+                    font-size: 6rem;
+                }
+                &.imgTxt{
+                    right: 18px;
+                    top: -66px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1180px){
+    .me{
+        .background-wrapper{
+            .backgroundTxt{
+                bottom: 0px;
+                &.imgTxt{
+                    right: 13px;
+                    top: -50px;
+                }
+                p{
+                    font-size: 4.5rem;
+                }
+            }
+        }
+        .inner{
+            &.txt{
+                p{
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .Banner{
+        .Banner{
+            .img{
+                background-attachment: unset;
+                background-position: 15%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px){
+    .me{
+        margin-left: 0;
+        .inner {
+            width: 85%;
+            margin-top: -50px;
+            &.txt {
+                width: 150%;
+                margin-top: 70%;
+                margin-left: 20px;
+            }
+        }
+        .background-wrapper{
+            .backgroundTxt{
+                width: 100%;
+                bottom: -4px;
+                left: 0px;
+                &.imgTxt{
+                    top: -57px;
+                    right: 45px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px){
+    .Banner{
+        .Banner{
+            .img{
+                background-position: 0%;
+            }
+        }
+        .BannerContent{
+            h1{
+                font-size: 2.7rem;
+            }
+            p{
+                font-size: 2.3rem;
+            }
+            .down{
+                bottom: 15px;
+                left: 44%;
+            }
+        }
+    }
+    .me{
+        padding-bottom: 15px;
+        .inner{
+            width: 100%;
+            margin-top: 30px !important;
+
+            &.txt{
+                margin-bottom: 65px !important;
+                width: 100%;
+                margin-top: 0;
+                margin-left: 0;
+                padding: 0 15px;
+            }
+        }
+        .background-wrapper{
+            .backgroundTxt{
+                bottom: unset;
+                top: -15px;
+                left: unset;
+                right: 5px;
+                width: auto;
+                &.imgTxt{
+                    top: -55px;
+                    right: unset;
+                    left: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .Banner{
+        .Banner{
+            .img{
+                background-position: 5%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .Banner{
+        .BannerContent{
+            h1{
+                font-size: 2.4rem;
+            }
+        }
+    }
+    .me{
+        .background-wrapper{
+            .backgroundTxt{
+                display: none;
+            }
+        }
+    }
+}
