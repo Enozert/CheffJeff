@@ -3,6 +3,15 @@ session_start();
 include('config.php');
 $request = $_SERVER['REQUEST_URI'];
 
+if(empty($_SESSION['lang'])){
+    if(strpos($request, 'nl/')){
+        include($root.'/src/php/setLang.php?lang=NL');
+    }
+    else{
+        include($root.'/src/php/setLang.php');
+    }
+}
+
 $ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
 if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
     require __DIR__ . '/Pages/Errors/ie.html';

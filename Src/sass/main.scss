@@ -151,6 +151,80 @@ header{
                             transition: color .3s ease-in-out;
                         }
                     }
+                    &.settings-btn{
+                        span{
+                            width: 100%;
+                            height: 40px;
+                            display: flex;
+                            margin-bottom: 7px;
+                            svg{
+                                margin: auto;
+                                width: 28px;
+                                height: 28px;
+                                color: $wText;
+                                transition: color .3s ease-in-out;
+                            }
+                            &:hover{
+                                cursor: pointer;
+                                svg{
+                                    color: $MainRed;
+                                    transition: color .3s ease-in-out;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .settings{
+            display: block;
+            width: 0px;
+            height: 50px;
+            position: fixed;
+            bottom: 0;
+            left: 50px;
+            background: $navBlack;
+            border-top-right-radius: 15px;
+            transition: width .3s ease-in-out;
+            overflow: hidden;
+            &.open{
+                width: 130px;
+                transition: width .3s ease-in-out;
+            }
+            ul{
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                li{
+                    span{
+                        img{
+                            width: 33px;
+                            height: 23px;
+                            display: block;
+                            border: solid 2px $navBlack;
+                            transition: border .3s ease-in-out;
+                        }
+                        &:hover{
+                            cursor: pointer;
+                            img{
+                                border: solid 2px $MainRed;
+                                transition: border .3s ease-in-out;
+                            }
+                        }
+                    }
+                    &.active{
+                        span{
+                            img{
+                                border: solid 2px $MainRed;
+                            }
+                        }
+                    }
                 }
             }
         }
