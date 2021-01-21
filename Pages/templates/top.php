@@ -139,7 +139,7 @@
         <div class="mobile-head">
           <div class="logo-wraper">
             <a href="/">
-              <img src="/src/img/logo.png" alt="logo">
+              <img src="/src/img/LogoWhiteMobile.png" alt="logo">
             </a>
           </div>
           <div class="hamburger-menu">
@@ -158,7 +158,30 @@
         </div>
       </div>
       <div class="menu-wrapper">
-        
+        <ul>
+          <?php foreach($menuItems as $menuItem): ?>
+            <?php if($menuItem['parent'] == null): ?>
+              <li class="<?php if($Page == $menuItem['Name']){echo "active";} ?>">
+                <a href="<?=$menuItem['Link']?>">
+                  <span><?=$menuItem['Name']?></span>
+                </a>
+                <?php if(isset($subMenuItems) && $menuItem['hasChild'] == 1): ?>
+                  <ul>
+                    <?php foreach($subMenuItems as $subMenuItem): ?>
+                      <?php if($subMenuItem['parent'] == $menuItem['Name']): ?>
+                        <li>
+                          <a href="<?=$subMenuItem['Link']?>">
+                            <span><?=$subMenuItem['Name']?></span>
+                          </a>
+                        </li>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </ul>
+                <?php endif ?>
+              </li>
+            <?php endif ?>
+          <?php endforeach ?>
+        </ul>
       </div>
     </div>
   </div>

@@ -9,13 +9,10 @@ if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; r
     die();
 }
 
-// if(empty($_SESSION['menu'])){
-//     include($root."/Recources/PHP/Api/getMenu.api.php");
-//     GetMenu($host);          
-// }  
-
-include($root."/src/php/api/getMenu.api.php");
-GetMenu($host);  
+if(empty($_SESSION['menu'])){
+    include($root."/src/php/api/getMenu.api.php");
+    GetMenu($host);          
+}
 
 $menuItems = $_SESSION['menu'];
 

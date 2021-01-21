@@ -5,9 +5,8 @@ $(document).ready(function(){
 
     if($('#menuToggle').hasClass('active')){
       $('#menuToggle').attr('aria-expanded', 'true');
-    }
-    else{
+    }else{
       $('#menuToggle').attr('aria-expanded', 'false');
-    }
-  })
-}); 
+    } 
+  });
+});

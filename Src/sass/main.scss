@@ -243,7 +243,7 @@ footer{
     }
 }
 
-.mobileMenu{
+.mobile-head{
     display: none;
 }
 
@@ -272,8 +272,20 @@ footer{
 }
 
 @media only screen and (max-width: 991px){
+    footer{
+        display: block !important;
+    }
     header{
-        display: none !important;
+        width: 100%;
+        height: 70px;
+        .top-wrapper,
+        .middle-wrapper,
+        .bottom-wrapper{
+            display: none !important;
+        }
+        .d-flex{
+            height: unset;
+        }
     }
     #Hamburgur{
         display: block;
@@ -322,7 +334,7 @@ footer{
         }
     }
       
-    .mobileMenu{
+    .mobile-head{
         display: block;
         background: $navBlack;
         z-index: 9999;
@@ -330,77 +342,68 @@ footer{
         top: 0;
         left: 0;
         width: 100%;
-        .top-wrapper{
-            .logo-wrapper{
-                width: 110px;
-                padding-top: 10px;
-                padding-left: 5px;
-                padding-bottom: 10px;
-            }
+        .logo-wraper{
+            width: 110px;
+            padding-top: 10px;
+            padding-left: 5px;
+            padding-bottom: 10px;
         }
-        .menu-wrapper{
-            position: absolute;
-            background: $navBlack;
-            max-height: 65px;
-            min-height: 65px;
-            width: 0px;
-            overflow: hidden;
+    }
+    .menu-wrapper{
+        position: absolute;
+        background: $navBlack;
+        max-height: 65px;
+        min-height: 65px;
+        top: 69px;
+        width: 0px;
+        overflow: hidden;
+        transition: width .7s ease-in-out;
+        &.active{
+            width: 100%;
             transition: width .7s ease-in-out;
-            &.active{
-                width: 100%;
-                transition: width .7s ease-in-out;
-            }
-            ul{
-                display: flex;
-                padding-left: 0;
-                justify-content: space-evenly;
-                list-style: none;
-                li{
-                    a{
-                        text-decoration: none !important;
-                        color: $wText;
-                        transition: color .3s ease-in-out;
-                        height: 100%;
+        }
+        ul{
+            display: flex;
+            padding-left: 0;
+            height: 65px;
+            justify-content: space-evenly;
+            list-style: none;
+            li{
+                a{
+                    text-decoration: none !important;
+                    color: $wText;
+                    transition: color .3s ease-in-out;
+                    height: 100%;
+                    display: block;
+                    span{
+                        opacity: 1;
+                        transition: opacity .3s ease-in-out;
+                        width: 100%;
+                        text-align: center;
                         display: block;
+                        font-size: 23px;
+                        letter-spacing: 2px;
+                        font-weight: 600;
+                        margin-top: 10px;
+                    }
+                }
+                &.active{
+                    a{
+                        color: $MainRed;
+                    }
+                }
+                &:hover{
+                    a{
+                        color: $MainRed;
+                        transition: color .3s ease-in-out;
+
                         svg{
                             opacity: 0;
-                            transition: opacity .5s ease-in-out;
-                            width: 26px;
-                            height: 26px;
-                            display: block;
-                            text-align: center;
-                            margin: 10px auto;
+                            transition: opacity .3s ease-in-out;
                         }
                         span{
                             opacity: 1;
-                            transition: opacity .3s ease-in-out;
-                            width: 100%;
-                            text-align: center;
-                            display: block;
-                            font-size: 23px;
-                            letter-spacing: 2px;
-                            font-weight: 600;
-                            margin-top: -45px;
-                        }
-                    }
-                    &.active{
-                        a{
-                            color: $MainRed;
-                        }
-                    }
-                    &:hover{
-                        a{
-                            color: $MainRed;
-                            transition: color .3s ease-in-out;
-
-                            svg{
-                                opacity: 0;
-                                transition: opacity .3s ease-in-out;
-                            }
-                            span{
-                                opacity: 1;
-                                transition: opacity .5s ease-in-out;
-                            }
+                            transition: opacity .5s ease-in-out;
                         }
                     }
                 }
@@ -439,26 +442,24 @@ footer{
             height: 55px;
         }
     } 
-    .mobileMenu{
-        .top-wrapper{
-            .logo-wrapper{
-                width: 85px;
-            }
+    .mobile-head{
+        .logo-wraper{
+            width: 85px;
         }
-        .menu-wrapper{
-            min-height: 50px;
-            max-height: 50px;
-            ul{
-                li{
-                    a{
-                        i{
-                            font-size: 25px;
-                        }
-                        span{
-                            font-size: 15px;
-                            letter-spacing: 0px;
-                            margin-top: -35px;
-                        }
+    }
+    .menu-wrapper{
+        min-height: 50px;
+        max-height: 50px;
+        ul{
+            li{
+                a{
+                    i{
+                        font-size: 25px;
+                    }
+                    span{
+                        font-size: 15px;
+                        letter-spacing: 0px;
+                        // margin-top: -35px;
                     }
                 }
             }

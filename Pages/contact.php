@@ -2,7 +2,7 @@
     $Page = "Contact";
     $JS = "contact";
     $CSS = $JS;
-    if(is_null($root)){
+    if(!isset($root) || is_null($root)){
         include('../config.php');
     }
     include($root."/src/php/api/contact.api.php");
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="form-wrapper">
             <!-- /Recources/PHP/contactSubmit.php  -->
-                <form id="form" class="contactForm" action="" method="post" @submit="onSubmit">
+                <form id="form" class="contactForm" action="/src/php/formSubmit.php" method="post" @submit="onSubmit">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="inner">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div id="recaptcha" data-theme="dark" class="g-recaptcha data-theme" data-sitekey="6LeXsMIZAAAAABxS0hX_R3KWUsumdccZnEyTx-S0"></div>
+                            <div id="recaptcha" data-theme="dark" class="g-recaptcha data-theme" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
                             <span class="help-block">
                                 {{ errors['recapcha'] }}
                             </span>
