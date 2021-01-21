@@ -46,7 +46,7 @@
                             <div class="inner">
                                 <div class="wrap" :class="{error: fNameHasError, valid: fNameIsValid}">
                                     <label for="firstName">
-                                        <span class="labelText">First name.</span>
+                                        <span class="labelText"><?=$lbl1?></span>
                                     </label>
                                     <input 
                                         type="text" 
@@ -67,7 +67,7 @@
                             <div class="inner">
                                 <div class="wrap" :class="{error: lNameHasError, valid: lNameIsValid}">
                                     <label for="text">
-                                        <span class="labelText">Last name.<small>(sir name)</small></span>
+                                        <span class="labelText"><?=$lbl2?></span>
                                     </label>
                                     <input 
                                         type="text" 
@@ -88,7 +88,7 @@
                             <div class="inner">
                                 <div class="wrap" :class="{error: emailHasError, valid: emailIsValid}">
                                     <label for="email">
-                                        <span class="labelText">E-mail adress.</span>
+                                        <span class="labelText"><?=$lbl3?></span>
                                     </label>
                                     <input 
                                         type="email" 
@@ -109,7 +109,7 @@
                             <div class="inner">
                                 <div class="wrap" :class="{error: phoneHasError, valid: phoneIsValid}">
                                     <label for="tel">
-                                        <span class="labelText">Phone number.<small>(optional)</small></span>
+                                        <span class="labelText"><?=$lbl4?></span>
                                     </label>
                                     <input 
                                         type="tel" 
@@ -130,7 +130,7 @@
                             <div class="inner">
                                 <div class="wrap" :class="{error: messageHasError, valid: messageIsValid}">
                                     <label for="message">
-                                        <span class="labelText lower">Message.</span>
+                                        <span class="labelText lower"><?=$lbl5?></span>
                                     </label>
                                     <textarea 
                                         name="message" 
@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="inner">
-                                <button type="submit" name="submit" id="submit" class="submit"><span>Send</span></button>
+                                <button type="submit" name="submit" id="submit" class="submit"><span><?=$btn?></span></button>
                             </div>
                         </div>
                     </div>

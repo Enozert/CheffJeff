@@ -29,9 +29,9 @@ function remove_menus(){
     remove_menu_page( 'tools.php' );                  //Tools
     remove_menu_page( 'options-general.php' );        //Settings
     remove_menu_page( 'smush' );
-    remove_menu_page( 'edit.php?post_type=acf-field-group' ); //custom posttype
+    //remove_menu_page( 'edit.php?post_type=acf-field-group' ); //custom posttype
 }
-remove_action( 'admin_menu', 'cptui_plugin_menu' ); //custom fieldtype
+//remove_action( 'admin_menu', 'cptui_plugin_menu' ); //custom fieldtype
 add_action( 'admin_menu', 'remove_menus' );
 
 add_action('admin_menu', 'change_menus_position');

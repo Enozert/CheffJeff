@@ -2,7 +2,6 @@ $(document).ready(function(){
   if(localStorage.getItem('lang')){
     $('#'+localStorage.getItem('lang')).addClass('active');
   }else{
-    console.log('Test');
     $('#UK').addClass('active');
     localStorage.setItem('lang', 'UK');
   }
@@ -40,8 +39,10 @@ $(document).ready(function(){
         localStorage.setItem('lang', id);
         $('.btnLang').removeClass('active');
         $('#'+localStorage.getItem('lang')).addClass('active');
+        console.log(this.responseText);
       }
     }
     xhr.send();
+    location.reload();
   });
 });
