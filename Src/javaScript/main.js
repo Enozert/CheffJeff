@@ -1,5 +1,9 @@
 $(document).ready(function(){
   $('#menuToggle').click(function(){
+    if($('.settings').hasClass('open')){
+      $('.settings').removeClass('open');
+    }
+
     $('#menuToggle').toggleClass('active');
     $('.menu-wrapper').toggleClass('active');
 
@@ -10,18 +14,39 @@ $(document).ready(function(){
     } 
   });
 
-  $('.settings-btn').hover(function(){
-    $('.settings').addClass('open');
-  });
-  $('.settings').hover(function(){
-    $(this).addClass('open');
-  });
-  $('.settings-btn').mouseleave(function(){
-    $('.settings').removeClass('open');
-  });
-  $('.settings').mouseleave(function(){
-    $(this).removeClass('open');
-  });
+  if ($(window).width() > 991) {
+    $('.settings-btn').hover(function(){
+      $('.settings').addClass('open');
+    });
+    $('.settings').hover(function(){
+      $(this).addClass('open');
+    });
+    $('.settings-btn').mouseleave(function(){
+      $('.settings').removeClass('open');
+    });
+    $('.settings').mouseleave(function(){
+      $(this).removeClass('open');
+    });
+  }
+  else {
+    $('.settings-btn').click(function() {
+      if($('#menuToggle').hasClass('active')){
+        $('#menuToggle').toggleClass('active');
+      }
+      if($('.menu-wrapper').hasClass('active')){
+        $('.menu-wrapper').toggleClass('active');
+      }
+
+      if($('.settings').hasClass('open')){
+        $('.settings').removeClass('open');
+      }else{
+        $('.settings').addClass('open');
+      }
+    });
+    $('.settings-btn').mouseleave(function(){
+      $('.settings').removeClass('open');
+    });
+  }
 
   $('.btnLang').click(function(){
     let id = $(this)[0].id;
