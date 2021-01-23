@@ -7,6 +7,7 @@ function GetMenu($host)
     $menuIds = array();
     $subMenu = array();
     $menu = array();
+    $lang = $_SESSION['lang'];
 
     foreach($menuItems as $menuItem){
         $menuIds[$menuItem['ID']] = [
@@ -20,23 +21,59 @@ function GetMenu($host)
     
         if($menuItem['type'] == 'custom'){
             if($menuItem['menu_item_parent'] == 0){
-                $navLink = $menuItem['url'];
-            }else {
-                $hasParent = true;
-                $pageTile = str_replace(' ', '_', $menuItem['title']);
-                $navLink = '/'.$menuIds[$menuItem['menu_item_parent']]['link'].$menuItem['url'];
-            }
-        }else{
-            if($menuItem['menu_item_parent'] == 0){
-                if($menuItem['object'] == 'home'){
-                    $navLink = '/';
-                }else{
-                    $navLink = '/'.$menuItem['object'];
+                switch($lang){
+                    case 'NL':
+                        $navLink = '/nl/'.$menuItem['url'];
+                        break;
+                    default:
+                        $navLink = $menuItem['url'];
+                        break;
                 }
             }else {
                 $hasParent = true;
                 $pageTile = str_replace(' ', '_', $menuItem['title']);
-                $navLink = '/'.$menuIds[$menuItem['menu_item_parent']]['link'].'/'.strtolower($pageTile);
+                switch($lang){
+                    case 'NL':
+                        $navLink = '/nl/'.$menuIds[$menuItem['menu_item_parent']]['link'].$menuItem['url'];
+                        break;
+                    default:
+                        $navLink = '/'.$menuIds[$menuItem['menu_item_parent']]['link'].$menuItem['url'];
+                        break;
+                }
+            }
+        }else{
+            if($menuItem['menu_item_parent'] == 0){
+                if($menuItem['object'] == 'home'){
+                    switch($lang){
+                        case 'NL':
+                            $navLink = '/nl';
+                            break;
+                        default:
+                            $navLink = '/';
+                            break;
+                    }
+                    
+                }else{
+                    switch($lang){
+                        case 'NL':
+                            $navLink = '/nl/'.$menuItem['object'];
+                            break;
+                        default:
+                            $navLink = '/'.$menuItem['object'];
+                            break;
+                    }
+                }
+            }else {
+                $hasParent = true;
+                $pageTile = str_replace(' ', '_', $menuItem['title']);
+                switch($lang){
+                    case 'NL':
+                        $navLink = '/nl/'.$menuIds[$menuItem['menu_item_parent']]['link'].'/'.strtolower($pageTile);
+                        break;
+                    default:
+                        $navLink = '/'.$menuIds[$menuItem['menu_item_parent']]['link'].'/'.strtolower($pageTile);
+                        break;
+                }
             }
         }
 

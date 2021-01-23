@@ -3,19 +3,37 @@ session_start();
 include('config.php');
 $request = $_SERVER['REQUEST_URI'];
 
-if(empty($_SESSION['lang'])){
-    if(strpos($request, 'nl/')){
-        include($root.'/src/php/setLang.php?lang=NL');
-    }
-    else{
-        include($root.'/src/php/setLang.php');
-    }
+if(strpos($request, '/') !== false){
+    $request = str_replace('//','/', $request);
 }
 
 $ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
 if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
     require __DIR__ . '/Pages/Errors/ie.html';
     die();
+}
+
+if(empty($_SESSION['lang'])){
+    if(strpos($request, '/'.strtolower($NL)) !== false || $request == '/'.strtolower($NL)){
+        include($root."/src/php/setLang.php");
+        urlLang($NL);
+    }
+    else{
+        include($root.'/src/php/setLang.php');
+    }
+}else{
+    if(strpos($request, strtolower($_SESSION['lang'])) === false){
+        if(strpos($request, '/'.strtolower($NL)) !== false || $request == '/'.strtolower($NL)){
+            include($root."/src/php/setLang.php");
+            urlLang($NL);
+        }else{
+            include($root."/src/php/setLang.php");
+            urlLang($UK);
+        }
+        
+        include($root."/src/php/api/getMenu.api.php");
+        GetMenu($host);
+    }
 }
 
 if(empty($_SESSION['menu'])){

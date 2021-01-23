@@ -20,9 +20,13 @@ for($i = 0; $i < count($data); $i++){
             switch ($lang){
                 case 'NL':
                     $txt1 = $data[$i]['acf']['tille'];
+                    $btn  = 'Website bekijken';
+                    $btn2  = 'Alle';
                     break;
                 default: 
                     $txt1 = $data[$i]['title']['rendered'];
+                    $btn  = 'View website';
+                    $btn2  = 'All';
                 break;
             }
             break;

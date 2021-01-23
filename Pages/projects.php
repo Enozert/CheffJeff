@@ -20,7 +20,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="filter-wrap">
-                <p class="btn-filter active" id="All">All</p>
+                <p class="btn-filter active" id="All"><?=$btn2?></p>
                 <?php foreach ($categories as $categorie): ?>
                     <?php if($categorie['name'] == 'Uncategorized'){ continue; } ?>
                     <p class="btn-filter" id="<?=str_replace(' ', '-', $categorie['name'])?>"><?=$categorie['name']?></p>
@@ -41,7 +41,7 @@
                                     <h2><?=$project['title']['rendered']?></h2>
                                 </div>
                                 <div class="link">
-                                    <a href="<?=$project['acf']['link']?>" target="_blank">View website</a>
+                                    <a href="<?=$project['acf']['link']?>" target="_blank"><?=$btn?></a>
                                 </div>
                             </div>
                         </div>

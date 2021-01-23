@@ -178,12 +178,12 @@
       </div>
       <div class="settings">
         <ul class="setLang">
-          <li id="UK" class="btnLang">
+          <li id="<?=$UK?>" class="btnLang <?php if($lang == $UK){ echo 'active';} ?>">
             <span>
               <img src="/src/img/lang/UK.svg">
             </span>
           </li>
-          <li id="NL" class="btnLang">
+          <li id="<?=$NL?>" class="btnLang <?php if($lang == $NL){ echo 'active';} ?>">
             <span>
               <img src="/src/img/lang/NL.svg">
             </span>
