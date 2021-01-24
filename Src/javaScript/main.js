@@ -31,10 +31,10 @@ $(document).ready(function(){
   else {
     $('.settings-btn').click(function() {
       if($('#menuToggle').hasClass('active')){
-        $('#menuToggle').toggleClass('active');
+        $('#menuToggle').removeClass('active');
       }
       if($('.menu-wrapper').hasClass('active')){
-        $('.menu-wrapper').toggleClass('active');
+        $('.menu-wrapper').removeClass('active');
       }
 
       if($('.settings').hasClass('open')){

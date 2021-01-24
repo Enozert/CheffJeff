@@ -133,10 +133,17 @@ function get_original_images_urls( $object, $field_name, $request ) {
 function get_nav_menus() {
     return wp_get_nav_menu_items('Main Navigation');
 }
+function get_nl_nav_menus() {
+    return wp_get_nav_menu_items('NL Navigation');
+}
 
 add_action( 'rest_api_init', function () {
     register_rest_route( 'wp/v2', 'menu', array(
         'methods' => 'GET',
         'callback' => 'get_nav_menus',
-    ) );
+    ));
+    register_rest_route( 'wp/v2', 'menunl', array(
+        'methods' => 'GET',
+        'callback' => 'get_nl_nav_menus',
+    ));
 } );

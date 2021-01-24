@@ -1,10 +1,14 @@
 <?php
-    $Page = "Services";
-    $JS = "services";
-    $CSS = $JS;
     if(is_null($root)){
         include('../config.php');
     }
+    if($_SESSION['lang'] == $NL){
+        $Page = "Diensten";
+    }else{
+        $Page = "Services";
+    }
+    $JS = "services";
+    $CSS = $JS;
     include($root."/src/php/api/services.api.php");
     include($root."/pages/templates/top.php");
 ?>

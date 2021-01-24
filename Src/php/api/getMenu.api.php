@@ -1,13 +1,18 @@
 <?php
 function GetMenu($host)
 {
-    $link = $host."wordpress/wp-json/wp/v2/menu";
+    $lang = $_SESSION['lang'];
+    $langLink = strtolower($_SESSION['lang']);
+    if($langLink != 'uk'){
+        $link = $host."wordpress/wp-json/wp/v2/menu$langLink";
+    }else{
+        $link = $host."wordpress/wp-json/wp/v2/menu";
+    }
     $dataPrep = file_get_contents($link);
     $menuItems = json_decode($dataPrep, true);
     $menuIds = array();
     $subMenu = array();
     $menu = array();
-    $lang = $_SESSION['lang'];
 
     foreach($menuItems as $menuItem){
         $menuIds[$menuItem['ID']] = [

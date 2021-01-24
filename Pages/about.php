@@ -1,10 +1,14 @@
 <?php
-    $Page = "About";
-    $JS = "about";
-    $CSS = $JS;
     if(is_null($root)){
         include('../config.php');
     }
+    if($_SESSION['lang'] == $NL){
+        $Page = "Over";
+    }else{
+        $Page = "About";
+    }    
+    $JS = "about";
+    $CSS = $JS;
     include($root."/src/php/api/about.api.php");
     include($root."/pages/templates/top.php");
 ?>
