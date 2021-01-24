@@ -1,6 +1,7 @@
 <?php
 session_start();
 $emailData = $_SESSION['emailData'];
+$lang = strtolower($_SESSION['lang']);
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -36,10 +37,13 @@ try {
     $mail->AltBody = strip_tags($eMailPrep['eBody']);
 
     $mail->send();
-    header("Location: /thanks");
+    if($lang != 'uk'){
+        header("Location: /$lang/thanks");
+    }else{
+        header("Location: /thanks");
+    }
 } catch (Exception $e) {
-    header("Location: /pages/contact.php?message=Test");
-    //Een of meer velden hebben een error. Probeer het later nog eens.
+    header("Location: /pages/contact.php?message=Een of meer velden hebben een error. Probeer het later nog eens.");
 }
 
 function buildEmail()

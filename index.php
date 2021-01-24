@@ -42,6 +42,7 @@ if(empty($_SESSION['menu'])){
 }
 
 $menuItems = $_SESSION['menu'];
+$lang = strtolower($_SESSION['lang']);
 
 if(strpos($request, '?fbclid')){
     $request = substr($request, 0, strpos($request, "?fbclid"));
@@ -75,6 +76,10 @@ switch ($request) {
         die();
         break;
     case '/thanks' :
+        require __DIR__ . '/pages/thanks.php';
+        die();
+        break;
+    case "/$lang/thanks" :
         require __DIR__ . '/pages/thanks.php';
         die();
         break;

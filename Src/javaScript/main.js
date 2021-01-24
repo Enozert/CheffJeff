@@ -93,7 +93,7 @@ $(document).ready(function(){
           if(url.split('/')[3] != ''){
             page = url.split('/')[3];
             url = url.replace(url.split('/')[3], lang);
-            url = url + '/' + page;
+            url = `${url}/${page}`;
           }else if(url.split('/')[3] == '' && url.split('/')[4] != ''){
             let arrUrl = url.split('/');
             arrUrl[3] = lang;

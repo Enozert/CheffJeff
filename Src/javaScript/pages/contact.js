@@ -72,6 +72,7 @@ new Vue({
     messageHasError: false,
     messageIsValid: false,
     validRecaptcha: false,
+    lang: localStorage.getItem('lang'),
   },
   methods: {
     onSubmit: function(e) {
@@ -94,7 +95,11 @@ new Vue({
         this.errors['recapcha'] = null;
         this.validRecaptcha = true;
       }else{
-        this.errors['recapcha'] = 'Please verify that you are not a robot.';
+        if(this.lang == 'NL'){
+          this.errors['recapcha'] = 'Toon aan dat je geen robot bent.';
+        }else{
+          this.errors['recapcha'] = 'Please verify that you are not a robot.';
+        }
         this.validRecaptcha = false;
       }
 
@@ -105,12 +110,20 @@ new Vue({
     },
     checkFName: function(fName) {
       if(fName == null || fName == '' || fName == 'null'){
-        this.errors['fName'] = 'First name can not be empty.';
+        if(this.lang == 'NL'){
+          this.errors['fName'] = 'Voornaam kan niet leeg zijn.';
+        }else{
+          this.errors['fName'] = 'First name can not be empty.';
+        }
         this.validFName = false;
         this.fNameIsValid = false;
         this.fNameHasError = true;
       }else if(!this.validateName(fName)){
-        this.errors['fName'] = fName + ' is not a name. A name can only contain letters.';
+        if(this.lang == 'NL'){
+          this.errors['fName'] = `${fName} is geen naam. Een naam kan alleen letters bevatten.`;
+        }else{
+          this.errors['fName'] = `${fName} is not a name. A name can only contain letters.`;
+        }
         this.validFName = false;
         this.fNameIsValid = false;
         this.fNameHasError = true;
@@ -123,12 +136,20 @@ new Vue({
     },
     checkLName: function(lName) {
       if(lName == null || lName == '' || lName == 'null'){
-        this.errors['lName'] = 'Last name can not be empty.';
+        if(this.lang == 'NL'){
+          this.errors['lName'] = 'Achternaam kan niet leeg zijn.';
+        }else{
+          this.errors['lName'] = 'Last name can not be empty.';
+        }
         this.validLName = false;
         this.lNameIsValid = false;
         this.lNameHasError = true;
       }else if(!this.validateName(lName)){
-        this.errors['lName'] = lName + ' is not a name. A name can only contain letters.';
+        if(this.lang == 'NL'){
+          this.errors['lName'] = `${lName} is geen naam. Een naam kan alleen letters bevatten.`;
+        }else{
+          this.errors['lName'] = `${lName} is not a name. A name can only contain letters.`;
+        }
         this.validLName = false;
         this.lNameIsValid = false;
         this.lNameHasError = true;
@@ -141,12 +162,20 @@ new Vue({
     },
     checkEmail: function(email) {
       if(email == null || email == '' || email == 'null'){
-        this.errors['email'] = 'E-mail can not be empty.';
+        if(this.lang == 'NL'){
+          this.errors['email'] = 'E-mail kan niet leeg zijn.';
+        }else{
+          this.errors['email'] = 'E-mail can not be empty.';
+        }
         this.validEmail = false;
         this.emailIsValid = false;
         this.emailHasError = true;
       }else if(!this.validateEmail(email)){
-        this.errors['email'] = email + ' is not a real e-amil adress.';
+        if(this.lang == 'NL'){
+          this.errors['email'] = `${email} is geen e-mailadres.`;
+        }else{
+          this.errors['email'] = `${email} is not a real e-amil adress.`;
+        }
         this.validEmail = false;
         this.emailIsValid = false;
         this.emailHasError = true;
@@ -164,7 +193,11 @@ new Vue({
         this.phoneIsValid = true;
         this.phoneHasError = false;
       }else if(!this.validatePhone(phone)){
-        this.errors['phone'] = phone + ' is not a real phone number.';
+        if(this.lang == 'NL'){
+          this.errors['phone'] = `${phone} is niet een echt telefoonnummer.`;
+        }else{
+          this.errors['phone'] = `${phone} is not a real phone number.`;
+        }
         this.validPhone = false;
         this.phoneIsValid = false;
         this.phoneHasError = true;
@@ -177,7 +210,11 @@ new Vue({
     },
     checkMessage: function(message) {
       if(message == null || message == '' || message == 'null'){
-        this.errors['message'] = 'Message can not be empty.';
+        if(this.lang == 'NL'){
+          this.errors['message'] = 'Bericht kan niet leeg zijn.';
+        }else{
+          this.errors['message'] = 'Message can not be empty.';
+        }
         this.validMessage = false;
         this.messageIsValid = false;
         this.messageHasError = true;
