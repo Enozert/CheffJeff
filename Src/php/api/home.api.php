@@ -5,7 +5,7 @@ $data = json_decode($dataPrep, true);
 if(isset($_SESSION['lang'])){
     $lang = $_SESSION['lang'];
 }else{
-    $lang = 'UK';
+    $lang = $UK;
 }
 
 for($i = 0; $i < count($data); $i++){
@@ -18,7 +18,7 @@ for($i = 0; $i < count($data); $i++){
         //     break;
         case 'full-stack-web-developer-wordpress-expert':
             switch ($lang){
-                case 'NL':
+                case $NL:
                     $txt1 = $data[$i]['acf']['tille'];
                     break;
                 default: 

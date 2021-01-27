@@ -5,7 +5,7 @@ $data = json_decode($dataPrep, true);
 if(isset($_SESSION['lang'])){
     $lang = $_SESSION['lang'];
 }else{
-    $lang = 'UK';
+    $lang = $UK;
 }
 
 $age = date_diff(date_create('1999-11-18'), date_create('today'))->y;
@@ -20,7 +20,7 @@ for($i = 0; $i < count($data); $i++){
         //     break;
         case 'hi-im-jeffrey-nijkamp':
             switch ($lang){
-                case 'NL':
+                case $NL:
                     $txt1 = $data[$i]['acf']['tille'];
                     $txt2 = $data[$i]['acf']['description'];
                     break;
@@ -33,7 +33,7 @@ for($i = 0; $i < count($data); $i++){
             break;
         case 'sidetxt':
             switch ($lang){
-                case 'NL':
+                case $NL:
                     $txt3 = $data[$i]['acf']['description'];
                     break;
                 default: 
@@ -45,7 +45,7 @@ for($i = 0; $i < count($data); $i++){
             break;
         case 'developer':
             switch ($lang){
-                case 'NL':
+                case $NL:
                     $txt4 = $data[$i]['acf']['tille'];
                     break;
                 default: 
@@ -55,7 +55,7 @@ for($i = 0; $i < count($data); $i++){
             break;
         case 'part-time-nerd':
             switch ($lang){
-                case 'NL':
+                case $NL:
                     $txt5 = $data[$i]['acf']['tille'];
                     break;
                 default: 
