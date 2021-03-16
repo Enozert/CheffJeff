@@ -53,7 +53,7 @@ foreach($menuItems as $menuItem){
         $requestPrep = file_get_contents($menuItem['templateIpa']);
         $template = json_decode($requestPrep, true);
         $template = $template[0]['acf']['template'];
-        require __DIR__ . '/Pages/'.$template;
+        require __DIR__ . '/pages/'.$template;
         die();
     }
 }
@@ -81,6 +81,14 @@ switch ($request) {
         break;
     case "/$lang/thanks" :
         require __DIR__ . '/pages/thanks.php';
+        die();
+        break;
+    case '/privacy-statement' :
+        require __DIR__ . '/pages/privacy.php';
+        die();
+        break;
+    case "/$lang/privacy-statement" :
+        require __DIR__ . '/pages/privacy.php';
         die();
         break;
     case '/wp' :

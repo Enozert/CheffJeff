@@ -36,7 +36,7 @@ function GetMenu($host)
                 }
             }else {
                 $hasParent = true;
-                $pageTile = str_replace(' ', '_', $menuItem['title']);
+                $pageTile = str_replace(' ', '-', $menuItem['title']);
                 switch($lang){
                     case 'NL':
                         $navLink = '/nl/'.$menuIds[$menuItem['menu_item_parent']]['link'].$menuItem['url'];
@@ -59,18 +59,20 @@ function GetMenu($host)
                     }
                     
                 }else{
+                    $tempLink = str_replace(' ', '-', $menuItem['title']);
+                    $tempLink = strtolower($tempLink);
                     switch($lang){
                         case 'NL':
-                            $navLink = '/nl/'.$menuItem['object'];
+                            $navLink = '/nl/'.$tempLink;
                             break;
                         default:
-                            $navLink = '/'.$menuItem['object'];
+                            $navLink = '/'.$tempLink;
                             break;
                     }
                 }
             }else {
                 $hasParent = true;
-                $pageTile = str_replace(' ', '_', $menuItem['title']);
+                $pageTile = str_replace(' ', '-', $menuItem['title']);
                 switch($lang){
                     case 'NL':
                         $navLink = '/nl/'.$menuIds[$menuItem['menu_item_parent']]['link'].'/'.strtolower($pageTile);

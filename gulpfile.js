@@ -19,6 +19,7 @@ bundleTask = ()=> {
       projects: './src/javaScript/pages/projects.js',
       contact: './src/javaScript/pages/contact.js',
       thanks: './src/javaScript/pages/thanks.js',
+      privacy: './src/javaScript/pages/privacy.js',
       404: './src/javaScript/errors/404.js',
     },
     mode: 'production',
